@@ -78,6 +78,7 @@ db.sqlite3
 
 .idea/
 
+# Cache files
 *.pyc
 __pycache__/
 *.py[cod]
