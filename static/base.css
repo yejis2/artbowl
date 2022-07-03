@@ -3,7 +3,7 @@
 }
 
 .artbowl_footer_nav{
-    font-size: .6rem
+    font-size: .9rem
 }
 
 .artbowl_footer{
@@ -12,5 +12,6 @@
 }
 
 .artbowl_header{
-    text-align: center; margin: 2rem 0;
+    text-align: center;
+    margin: 2rem 0;
 }
