@@ -153,3 +153,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 엑셀 파일 업로드 핸들러
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                    "django_excel.TemporaryExcelFileUploadHandler")
