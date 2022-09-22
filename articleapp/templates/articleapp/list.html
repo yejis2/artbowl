@@ -18,55 +18,27 @@
             border-radius: .6rem;
         }
     </style>
+    {% if article_list %}
+        <div class="container">
+            {% for article in article_list %}
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                    {% include 'snippets/card.html' with article=article %}
+                </a>
+            {% endfor %}
+        </div>
+        <script src="{% static 'js/magicgrid.js' %}"></script>
+    {% else %}
+        <div class="text-center">
+            <h1>No Articles YET!</h1>
+        </div>
+    {% endif %}
 
-    <div class="container">
-      <div class="item1">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220314125553_67147134aa0741e3bb108bb1fcb5dc85_a33b380bb514443abc87d87fc1723e9d" alt="">
-      </div>
-      <div class="item2">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220314095305_7add9f4f7f314652a8011a0cf04c9103_dc03ae1b3ce045c79c3829d8330a421d" alt="">
-      </div>
-      <div class="item3">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220314150922_e65e000c9cba4fadad67ac48d7e94be5_0b0dbe0d8b2d4d0d90ac2490d5e796d8"alt="">
-      </div>
-      <div class="item4">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2021%2F&FILE_NM=20211222180701_a72a708afd994246b14cbd8dac5714ed_c3f81e75590e48dc876c24854be47ebc" alt="">
-      </div>
-      <div class="item5">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220107183747_ace0db0164a54d2e8a7a3d7cfb957d22_ae4713563a57473da74a4c78c80234c4" alt="">
-      </div>
-      <div class="item6">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2021%2F&FILE_NM=20211222200100_313897c6a8a74f4a88be0037d5a4e928_87a41f7670b74b23a09abe702f201e53" alt="">
-      </div>
-      <div class="item7">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2021%2F&FILE_NM=20211222173629_df6e1e3ae5a14c259fe7d2d669c01b10_95a054a5a2da4729a7441b03396b4815" alt="">
-      </div>
-      <div class="item8">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2021%2F&FILE_NM=20211222200810_69fc792e96b24b91b43cf1ea21f0f15f_7338b6f4394d404690e8e447daa28e21" alt="">
-      </div>
-      <div class="item9">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2021%2F&FILE_NM=20210907090337_2c9c75a160f44045acbdc8d039aeb57d_93e8f3dfb1e947b4a189b84649cbcda0" alt="">
-      </div>
-      <div class="item10">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220121105714_12c868c2386f49e5ae31c7cae1cd1d5f_cb2566cc9582483dad0bb66b12c7854c" alt="">
-      </div>
-      <div class="item11">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2021%2F&FILE_NM=20211101100411_61310068b41d4fffb3ee853b9971415d_d2d56c6c8aa446fb88e28fcc3c96f0d4" alt="">
-      </div>
-      <div class="item12">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220121141936_36ef4a83b1e94922982f13d7e79c346f_e14c94abaa854718b1c39f45465a1228" alt="">
-      </div>
-      <div class="item13">
-          <img src="http://sema.seoul.go.kr/common/imageView?FILE_PATH=%2Fex%2FEXI01%2F2022%2F&FILE_NM=20220121141521_947928c787164474a2055d4b504fd486_f1f560a75e3d4902864a5bf9767b6f52" alt="">
-      </div>
-    </div>
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
     <div style="text-align: center">
         <a href="{% url 'articleapp:create' %}" class="btn btn-dark col-3 mt-3">
             Create Article
         </a>
     </div>
-
-    <script src="{% static 'js/magicgrid.js' %}"></script>
 
 {% endblock %}
