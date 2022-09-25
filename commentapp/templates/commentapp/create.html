@@ -14,7 +14,7 @@
                 <input type="submit" class="btn btn-dark col-3 mt-3">
             {% else %}
                 <a href = "{% url 'accountapp:login' %}?next={{ request.path }}"
-                    class="btn btn-dark col-3 mt-3>
+                    class="btn btn-dark col-3 mt-3">
                     Login
                 </a>
             {% endif %}
